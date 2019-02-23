@@ -1,0 +1,30 @@
+#!/bin/bash
+
+COLUMNS=$(tput cols)
+
+function display_title_line
+{
+	local LEN
+	local MARGIN
+
+	(( LEN = ${#1} - 44 ))
+	(( MARGIN= (${COLUMNS} - ${LEN}) / 2 ))
+	printf "%"${MARGIN}"s" " "
+	printf "${1}\n"
+}
+
+function display_title
+{
+display_title_line "\e[31m _____ \e[0m\e[35m  _    _ \e[0m\e[31m  _____ \e[0m\e[35m  _____ \e[0m"
+display_title_line "\e[31m|_   _|\e[0m\e[35m | \  | |\e[0m\e[31m |_   _|\e[0m\e[35m |_   _|\e[0m"
+display_title_line "\e[31m  | |  \e[0m\e[35m |  \ | |\e[0m\e[31m   | |  \e[0m\e[35m   | |  \e[0m"
+display_title_line "\e[31m _| |_ \e[0m\e[35m |   \| |\e[0m\e[31m  _| |_ \e[0m\e[35m   | |  \e[0m"
+display_title_line "\e[31m|_____|\e[0m\e[35m |_|\___|\e[0m\e[31m |_____|\e[0m\e[35m   |_|  \e[0m"
+printf "\n"
+echo "	||           _||_                            ||           "
+echo "	||__         _  _  ___   ___          _     _||  ___   ___"
+echo "	| _ | ||_||   ||  | _ | | _ | ||_|| ||_|| ||_||   _ | | __"
+echo "	||_|| |__ |   ||  ||_|| ||_|| |___| |___  |___| ||_|| ||  "
+echo "	         ||          ||                                   "
+echo "	       ___|        ___|                                   "
+}
