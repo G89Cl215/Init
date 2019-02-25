@@ -1,0 +1,9 @@
+# Pour se connecter en ssh depuis notre poste sur une machine, il nous faut
+# l'identifiant d'un utilisateur de la machine a distance (notons le login) et
+# l'adresse ip de la machine (notons ip) et les agencer comme ceci sur un
+# terminal du poste :
+
+	$>	ssh login@ip
+
+# L'option -p permet de preciser un numero de port specifique si jamais ce n'est
+# pas le port par defaut (le port 22) qui est utilise sur la machine a distance.

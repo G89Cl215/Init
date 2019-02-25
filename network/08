@@ -1,0 +1,9 @@
+# Attention, en toute rigueur, le Name Server est a distinguer de l'hebergeur 
+# (meme s'ils sont confondus dans la majeure partie des cas). Le premier est le
+# (ou les) serveurs habilites a une requete DNS, alors que le second est la ou
+# le site est physiquement socke
+
+Name Server: NS-1236.AWSDNS-26.ORG
+Name Server: NS-144.AWSDNS-18.COM
+Name Server: NS-686.AWSDNS-21.NET
+Name Server: NS-1989.AWSDNS-56.CO.UK

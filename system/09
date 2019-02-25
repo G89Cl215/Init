@@ -1,0 +1,6 @@
+# La commande suivante permet de lister les personnes connectes sur le systeme
+# l'acronyme tty, que vous verrez peut etre (certainement meme) apparaitre
+# abrege teletype, et signifie que le dit utilisateur est connecte via un
+# terminal
+
+	$> who

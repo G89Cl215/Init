@@ -1,0 +1,4 @@
+# La commande uptime donne des informations temporelles sur la session
+# -p -> juste la duree de la session actuelle
+
+	$> uptime -p

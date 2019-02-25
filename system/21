@@ -1,0 +1,7 @@
+# Il y a plusieurs philosophies possibles ici : ou bien vous considerez qu'un 
+# "user reel" possede necessairement un repertoire dans /home, ou bien vous
+# considerez que tout user dont l'uid est superieur a 1000 (et n'est donc pas
+# un utilisateur syteme) est reel
+
+	$>	ls /home
+	$>	cat /etc/passwd | grep "tout les uid > 1000"

@@ -1,0 +1,4 @@
+# Une fois configurees, les clefs des machines qui peuvent se connecter sur
+# notre machine sont stockees dans /.ssh/ssh_authorized_keys
+# En regle generale, le chemin du fichier dans l'arborescence est precise dans
+# le fichier /etc/ssh/sshd_config

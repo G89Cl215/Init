@@ -1,0 +1,6 @@
+# liste de toutes les etapes du reseau entre votre machine et le serveur de
+# slash16 . A remarquer :
+# -en 1, le noeud du sous-reseau de votre cluster
+# -en 2, le NAT, interface entre le local et le reseau exterieur
+
+traceroute slash16.org | grep -v "* * *"

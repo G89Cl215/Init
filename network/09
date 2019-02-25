@@ -1,0 +1,11 @@
+# Le reseau de 42 est un reseau local NAT (qui possede des adresses exterieures
+# que nous cherchons ici a trouver et des adresses "interieures" qui les
+# gateways deja rencontrees). Il faut donc interroger un serveur exterieur pour
+# obtenir l'adresse publique de 42. 
+
+Address: 163.172.250.13
+Address: 163.172.250.11
+Address: 163.172.250.12
+
+Sortie de la commande
+	nslookup 42.fr 8.8.8.8 | grep Address | grep 1

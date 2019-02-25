@@ -1,0 +1,5 @@
+La version de la du systeme d'exploitation est ecrite dans les fichiers suivants
+
+/proc/version			-> Comporte egalement des informations sur le compilateur
+/etc/issue				-> juste la version du debian
+/etc/debian_version		-> le numero de version

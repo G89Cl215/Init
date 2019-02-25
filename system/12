@@ -1,0 +1,6 @@
+# La commande du (disk usage) cherche recursivement l'arborescence de
+# l'argument passe et renvoie l'espace utilise par chaue sous dosier
+# L'option h (human readable) permet d'afficher les tailles en kilo,
+# Mega, Giga, Tera - octets
+
+	$>	du -h /var

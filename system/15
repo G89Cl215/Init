@@ -1,0 +1,16 @@
+# La commande kill permet d'envoyer un signal a un processus. Il faut les pids
+# (process identities) des programmes auquels nous voulons communiquer (cf top
+# ou jobs).
+# La liste des signaux possibles est obtenue grace aux options -l et -L de kill.
+# Le ieme signal de la table peut etre envoye avec -l <i> mais par defaut, nous
+# enverrons SIGTERM qui termine le processus.
+# L'option -9 -1 permet de communiquer a tout les processus auquel vous pouvez
+# communiquer (/!\ en sudo : hard reset de session)
+# L'argument $! permet de s'adreser au dernier processus lance.
+# L'argument %n permet de s'adreser au nieme processus de la liste de jobs.
+# pkill est tres similaire mais grep le parametre passe en argument avant de lui
+# envoyer le signal souhaite.
+
+	$>	kill $!
+	$>	pkill tail
+# /!\ Cette derniere tue tout les processus tail (il peut y en avoir plus d'un)

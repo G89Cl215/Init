@@ -1,0 +1,10 @@
+# Attention, la reponse est totalement liee a la place a laquelle vous etiez
+# quand vous avez repondu...
+
+Server:		10.51.1.42
+Address:	10.51.1.42#53
+
+3.5.12.10.in-addr.arpa	name = e2r5p3.42.fr.
+
+Avec
+	nslookup -type=ptr 10.12.5.3

@@ -1,0 +1,10 @@
+# Le service cron est un programmateur de taches qui permet d'executer
+# des commandes a intervalles reguliers
+
+#	$>	crontab -e
+# Permet l'edition du fichier crontab. On y trouve quelques commentaires
+# expliquant la syntaxe du fichier :
+# 	une ligne correspond a une programmation sur laquelle on trouve en premier
+# 	lieu la presicion de l'occurence voulue selon le format 
+# 			min (0-59) h (0-23) jour (1-31) mois (1-12) jour_semaine (0-6) ;
+# 	suivi de la commande a executer.

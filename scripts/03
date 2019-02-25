@@ -1,0 +1,194 @@
+#!/bin/bash
+
+#ce script est a lancer depuis le dossier scripts
+
+COLUMNS=$(tput cols)
+
+function display_title_line
+{
+	local LEN
+	local MARGIN
+
+	(( LEN = ${#1} - 44 ))
+	(( MARGIN= (${COLUMNS} - ${LEN}) / 2 ))
+	printf "%"${MARGIN}"s" " "
+	printf "${1}\n"
+}
+
+function display_title
+{
+	display_title_line "\e[31m _____ \e[0m\e[35m  _    _ \e[0m\e[31m  _____ \e[0m\e[35m  _____ \e[0m"
+	display_title_line "\e[31m|_   _|\e[0m\e[35m | \  | |\e[0m\e[31m |_   _|\e[0m\e[35m |_   _|\e[0m"
+	display_title_line "\e[31m  | |  \e[0m\e[35m |  \ | |\e[0m\e[31m   | |  \e[0m\e[35m   | |  \e[0m"
+	display_title_line "\e[31m _| |_ \e[0m\e[35m |   \| |\e[0m\e[31m  _| |_ \e[0m\e[35m   | |  \e[0m"
+	display_title_line "\e[31m|_____|\e[0m\e[35m |_|\___|\e[0m\e[31m |_____|\e[0m\e[35m   |_|  \e[0m"
+	printf "\n"
+	echo "	||           _||_                            ||           "
+	echo "	||__         _  _  ___   ___          _     _||  ___   ___"
+	echo "	| _ | ||_||   ||  | _ | | _ | ||_|| ||_|| ||_||   _ | | __"
+	echo "	||_|| |__ |   ||  ||_|| ||_|| |___| |___  |___| ||_|| ||  "
+	echo "	         ||          ||                                   "
+	echo "	       ___|        ___|                                   "
+}
+
+function network_menu
+{
+	local file_nbr
+	local ex
+
+	while [[ $file_nbr != 0 ]]; do
+		clear
+		display_title
+		printf "\n|\\|ETWORK\n\nIn this file you can view any of the files below : \n\n"
+		pwd
+		ls
+		printf "0. back to main menu\n\n"
+		read -p "Type the name of the file you want to see : " file_nbr
+		case $file_nbr in
+			0)  break
+				;;
+			*) if [ -f ./"$file_nbr" ];
+			then
+				ex=1
+				tput cuu1
+				tput el
+				printf "Here is my answer to $file_nbr\n\n"
+				cat "$file_nbr"
+				while [[ $ex != 0 ]]; do
+					read -p "If it is relevant, you can press 1 to execute : " ex
+					case $ex in
+						1) sh $file_nbr
+							ex=0
+							;;
+						*) break
+							;;
+					esac
+				done
+
+				else 
+					echo "Invalid entry."
+				fi
+			printf "\n\nPress any key to continue."
+			read -n 1
+			;;
+		esac
+	done
+	cd ..
+}
+
+function system_menu
+{
+	local file_nbr
+	local ex
+
+	while [[ $file_nbr != 0 ]]; do
+		clear
+		display_title
+		printf "  _\n_/ YSTEM\n\nIn this file you can view any of the files below : \n\n"
+		pwd
+		ls
+		printf "0. back to main menu\n\n"
+		read -p "Type the name of the file you want to see : " file_nbr
+		case $file_nbr in
+			0)  break
+				;;
+			*) if [ -f ./"$file_nbr" ];
+			then
+				ex=1
+				tput cuu1
+				tput el
+				printf "Here is my answer to $file_nbr\n\n"
+				cat "$file_nbr"
+				printf "\nIf it is a command, you might need to execute on the vm"
+			else 
+				echo "Invalid entry."
+			fi
+			printf "\n\nPress any key to continue."
+			read -n 1
+			;;
+	esac
+done
+cd ..
+}
+
+function script_menu
+{
+	local file_nbr
+	local ex
+
+	while [[ $file_nbr != 0 ]]; do
+		clear
+		display_title
+		printf "  _\n_/ CRIPTS\n\nIn this file you can view any of the files below : \n\n"
+		pwd
+		ls
+		printf "0. back to main menu\n\n"
+		read -p "Type the name of the file you want to see : " file_nbr
+		case $file_nbr in
+			0)  break
+				;;
+			*) if [ -f ./"$file_nbr" ];
+			then
+				ex=1
+				tput cuu1
+				tput el
+				printf "Here is my answer to $file_nbr\n\n"
+				cat "$file_nbr" | less
+			else 
+				echo "Invalid entry."
+			fi
+			printf "\n\nPress any key to continue."
+			read -n 1
+			;;
+	esac
+done
+cd ..
+}
+
+tput smcup
+cd ..
+while [[ $selection != 0 ]]; do
+	clear
+	display_title
+	cat <<- _EOF_
+	Please Select:
+
+	1. Network menu
+	2. System menu
+	3. Scripts
+	4. Author file
+	0. Quit
+
+	_EOF_
+
+	read -p "Enter selection [0-4] > " selection
+	case $selection in
+		1) cd network
+			pwd
+			network_menu
+			;;
+		2) cd system
+			system_menu
+			;;
+		3) cd scripts 
+			script_menu
+			;;
+		4) tput cuu1
+			tput el
+			cat auteur
+			printf "\n\nPress any key to continue."
+			read -n 1
+			;;
+		0)  break
+			;;
+		*) tput cuu1
+			tput el
+			echo "Invalid entry."
+			printf "\n\nPress any key to continue."
+			read -n 1
+			;;
+	esac
+done
+
+tput rmcup
+echo "Program terminated."

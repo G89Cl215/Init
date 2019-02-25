@@ -1,0 +1,4 @@
+#La commande est hostname a executer en su (super user) (su [username] permet 
+# aussi de se substituer a l'utilisateur liste dans son instance de terminal)
+
+	$> hostname [NEW_NAME]

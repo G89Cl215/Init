@@ -1,0 +1,28 @@
+#!/bin/bash
+
+#ce programme est a lancer en mode su
+
+read -p "Qui voulez vous supprimer ?" name
+
+if id -u $name
+then
+	echo "\n\033[32m$name trouve !\033[0m\n"
+else
+	echo "\n\033[31m$name n'existe pas !\033[0m\n"
+	exit
+fi
+
+skill -KILL -u $name
+crontab -r -u $name
+passwd -l $name
+userdel -r $name
+
+echo "\033[31mSupprimer le home de $name ?\033[0m (\033[31myes\033[0m/\033[32mno\033[0m)"
+read -p " > " maj
+if [ $maj = "y" ] || [ $maj = "o" ] || [ $maj = "yes" ] || [ $maj = "Y" ]
+|| [ $maj = "O" ] || [ $maj = "oui" ] || [ $maj = "OUI" ] || [ $maj = "YES" ]
+then
+	rm -rf /home/$name
+fi
+
+echo "\n\033[32m$name a etait supprime !\033[0m\n"

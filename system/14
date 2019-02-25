@@ -1,0 +1,13 @@
+# Ajouter & a la fin d'une commande permet de l'executer en arriere plan 
+# Cette commande figurera parmis une liste d'executables interrompus visibles
+# grace a la commande jobs. La commande disown permet alors de de decoupler
+# l'executable que nous venons d'envoyer en arriere plan de l'instance de
+# terminal sur laquelle nous travaillons. Nous pourrions alors retouver le
+# processus meme apres que nous ayons ferme notre terminal, ou bien le
+# recuperer sur un autre instance de terminal.
+# Ajouter nohup avant la commande (toujours precedee de notre signe &) permet 
+# d'obtenir le meme effet que la commande disown.
+# NB : La commande nohup creera un fichier nohup.out pour afficher la sortie du
+#  processus en arriere plan a moins que redirigions la dite sortie.
+
+	$>	tail -f /var/log/syslog &
