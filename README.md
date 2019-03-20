@@ -1,0 +1,3 @@
+# Init
+Ceci est le rendu d'un projet d'administration système pour 42.
+Forcément, il faut un peu plus de contexte...
